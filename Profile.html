@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ mobileMenu: false, scroll: 0 }" @scroll.window="scroll = window.pageYOffset">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prabin Upadhayay | Java Developer & Tech Strategist</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    [x-cloak] {
+      display: none !important;
+    }
+
+    :root {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #020617;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .code-font {
+      font-family: 'Fira Code', monospace;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .blob {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(59, 130, 246, 0.15);
+      filter: blur(80px);
+      border-radius: 50%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="relative">
+
+  <div class="blob top-0 -left-20"></div>
+  <div class="blob bottom-0 -right-20" style="background: rgba(168, 85, 247, 0.1);"></div>
+
+  <nav :class="scroll > 50 ? 'glass py-3 shadow-2xl' : 'bg-transparent py-6'"
+    class="fixed w-full z-50 transition-all duration-300 px-6 md:px-16 flex justify-between items-center">
+    <div class="text-2xl font-extrabold tracking-tighter group cursor-pointer">
+      <span class="text-white">PRABIN</span><span class="text-blue-500 group-hover:animate-pulse">.</span>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-widest text-slate-400">
+      <a href="#about" class="hover:text-blue-400 transition">About</a>
+      <a href="#skills" class="hover:text-blue-400 transition">Expertise</a>
+      <a href="#education" class="hover:text-blue-400 transition">Journey</a>
+      <a href="mailto:contact@prabin.com"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition transform hover:scale-105">Hire
+        Me</a>
+    </div>
+
+    <button @click="mobileMenu = !mobileMenu" class="md:hidden text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor font-bold">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </nav>
+
+  <div x-show="mobileMenu" x-cloak
+    class="fixed inset-0 z-[60] glass flex flex-col items-center justify-center space-y-8 text-2xl font-bold"
+    @click.away="mobileMenu = false">
+    <a href="#about" @click="mobileMenu = false">About</a>
+    <a href="#skills" @click="mobileMenu = false">Expertise</a>
+    <a href="#education" @click="mobileMenu = false">Journey</a>
+    <button @click="mobileMenu = false" class="absolute top-8 right-8 text-4xl">&times;</button>
+  </div>
+
+  <section id="about" class="min-h-screen flex flex-col justify-center px-6 md:px-16 pt-20">
+    <div data-aos="fade-right" data-aos-duration="1000">
+      <p class="code-font text-blue-400 mb-4 tracking-widest text-sm md:text-base font-medium uppercase">
+        &lt; Software Engineer & Prompt Specialist /&gt;
+      </p>
+      <h1 class="text-5xl md:text-8xl font-black mb-6 leading-[1.1]">
+        Modern Code.<br><span class="text-gradient">Intelligent Logic.</span>
+      </h1>
+      <p class="text-slate-400 max-w-2xl text-lg md:text-xl mb-10 leading-relaxed">
+        I am <span class="text-white font-bold">Prabin Upadhayay</span>. A Java developer specializing in DevOps,
+        enhanced by AI prompt engineering and data-driven SEO strategies. Currently scaling my expertise at ISMT.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#education"
+          class="px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-blue-500 hover:text-white transition-all text-center">Academic
+          Track</a>
+        <a href="#skills"
+          class="px-10 py-4 glass text-white font-bold rounded-xl hover:bg-white/10 transition-all text-center border border-white/10">View
+          Skill Matrix</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="py-24 px-6 md:px-16 bg-slate-900/20" x-data="{ tab: 'dev' }">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Expertise <span class="text-blue-500">_</span></h2>
+        <p class="text-slate-400">Merging traditional software development with modern AI and data analytics.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-4 space-y-3">
+          <button @click="tab = 'dev'"
+            :class="tab === 'dev' ? 'bg-blue-600 border-blue-600 scale-105' : 'glass hover:border-blue-500/50'"
+            class="w-full p-5 rounded-2xl transition-all text-left flex items-center justify-between group">
+            <span class="font-bold">Java Development</span>
+            <svg class="w-5 h-5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          <button @click="tab = 'ai'"
+            :class="tab === 'ai' ? 'bg-purple-600 border-purple-600 scale-105' : 'glass hover:border-purple-500/50'"
+            class="w-full p-5 rounded-2xl transition-all text-left flex items-center justify-between group">
+            <span class="font-bold">Prompt Engineering</span>
+            <svg class="w-5 h-5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          <button @click="tab = 'data'"
+            :class="tab === 'data' ? 'bg-emerald-600 border-emerald-600 scale-105' : 'glass hover:border-emerald-500/50'"
+            class="w-full p-5 rounded-2xl transition-all text-left flex items-center justify-between group">
+            <span class="font-bold">Data Analytics</span>
+            <svg class="w-5 h-5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          <button @click="tab = 'seo'"
+            :class="tab === 'seo' ? 'bg-orange-600 border-orange-600 scale-105' : 'glass hover:border-orange-500/50'"
+            class="w-full p-5 rounded-2xl transition-all text-left flex items-center justify-between group">
+            <span class="font-bold">Technical SEO</span>
+            <svg class="w-5 h-5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="lg:col-span-8 glass p-8 md:p-12 rounded-[2rem] min-h-[400px]">
+          <div x-show="tab === 'dev'" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-x-4">
+            <h3 class="text-3xl font-bold mb-6 text-blue-400 font-mono italic">01. Core Backend</h3>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8">Architecting high-concurrency systems using Core
+              Java. Focused on clean code, SOLID principles, and efficient database management.</p>
+            <div class="grid grid-cols-2 gap-4 code-font text-sm">
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5 italic">// Multi-threading</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5 italic">// Logic Building</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5 italic">// Hibernate ORM</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5 italic">// Microservices</div>
+            </div>
+          </div>
+
+          <div x-show="tab === 'ai'" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-x-4">
+            <h3 class="text-3xl font-bold mb-6 text-purple-400 font-mono italic">02. AI Interaction</h3>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8">Expert in designing structured prompts for LLMs to
+              automate workflows, generate high-quality code, and build RAG (Retrieval-Augmented Generation) systems.
+            </p>
+            <div class="grid grid-cols-2 gap-4 code-font text-sm text-purple-200">
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Token Optimization</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Few-Shot Prompting</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># AI Agent Design</div>
+            </div>
+          </div>
+
+          <div x-show="tab === 'data'" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-x-4">
+            <h3 class="text-3xl font-bold mb-6 text-emerald-400 font-mono italic">03. Insights Engine</h3>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8">Deciphering complex datasets into visual stories.
+              Proficient in statistical modeling and data-driven decision-making for enterprise software.</p>
+            <div class="grid grid-cols-2 gap-4 code-font text-sm text-emerald-200">
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Predictive Analytics</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># SQL Aggregations</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Python/Pandas</div>
+            </div>
+          </div>
+
+          <div x-show="tab === 'seo'" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-x-4">
+            <h3 class="text-3xl font-bold mb-6 text-orange-400 font-mono italic">04. Visibility Strategy</h3>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8">Optimizing web infrastructure for search engine
+              crawlers. Merging technical performance with keyword strategy to dominate search rankings.</p>
+            <div class="grid grid-cols-2 gap-4 code-font text-sm text-orange-200">
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Core Web Vitals</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Schema Markup</div>
+              <div class="bg-white/5 p-3 rounded-lg border border-white/5"># Organic Growth</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="py-24 px-6 md:px-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-black mb-16 text-center">Academic <span
+          class="text-blue-500 italic">Timeline</span></h2>
+
+      <div class="relative space-y-16">
+        <div
+          class="absolute left-[11px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-transparent opacity-30">
+        </div>
+
+        <div class="relative pl-12" data-aos="fade-up">
+          <div
+            class="absolute left-0 top-2 w-6 h-6 rounded-full bg-blue-600 border-4 border-[#020617] shadow-[0_0_15px_#2563eb]">
+          </div>
+          <span class="code-font text-blue-400 text-sm font-bold">2023 — PRESENT</span>
+          <h3 class="text-2xl font-bold mt-1 text-white">BSc (Hons) Computing</h3>
+          <p class="text-slate-400 text-lg">ISMT College</p>
+          <p class="mt-4 text-slate-500 max-w-lg">Advanced studies in System Architecture, Artificial Intelligence, and
+            Big Data Frameworks.</p>
+        </div>
+
+        <div class="relative pl-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute left-0 top-2 w-6 h-6 rounded-full bg-purple-600 border-4 border-[#020617]"></div>
+          <span class="code-font text-purple-400 text-sm font-bold">2021 — 2023</span>
+          <h3 class="text-2xl font-bold mt-1 text-white">High School (Science)</h3>
+          <p class="text-slate-400 text-lg">Oxford College</p>
+          <p class="mt-4 text-slate-500 max-w-lg">Focused on Physics and Mathematics, laying the logical foundation for
+            programming.</p>
+        </div>
+
+        <div class="relative pl-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute left-0 top-2 w-6 h-6 rounded-full bg-slate-700 border-4 border-[#020617]"></div>
+          <span class="code-font text-slate-500 text-sm font-bold">COMPLETED 2020</span>
+          <h3 class="text-2xl font-bold mt-1 text-white">Schooling (SEE)</h3>
+          <p class="text-slate-400 text-lg">Siddhartha English Boarding School</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-20 border-t border-white/5 text-center">
+    <div class="text-3xl font-black mb-8">Let's build the <span class="text-blue-500">Future.</span></div>
+    <div class="flex justify-center space-x-6 mb-8 text-slate-400 font-bold uppercase tracking-widest text-xs">
+      <a href="https://github.com/Prabin-Upadhayay007" class="hover:text-blue-500">GitHub</a>
+      <a href="https://www.linkedin.com/in/prabin-upadhayay/" class="hover:text-blue-500">LinkedIn</a>
+      <a href="#" class="hover:text-blue-500">Twitter</a>
+    </div>
+    <p class="code-font text-slate-600 text-sm">
+      &copy; 2026 PRABIN UPADHAYAY. Compiled with excellence.
+    </p>
+  </footer>
+
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+  </script>
+</body>
+
+</html>
